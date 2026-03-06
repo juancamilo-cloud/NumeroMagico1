@@ -1,15 +1,15 @@
-/* ====================================
-   VARIABLES PRINCIPALES
-==================================== */
+
+ //  VARIABLES PRINCIPALES
+
 
 let numeroSecreto;
 let intentos;
 let maxIntentos = 10;
 let intentosPrevios = [];
 
-/* ====================================
-   INICIAR JUEGO
-==================================== */
+
+ //  INICIAR JUEGO
+
 
 function iniciarJuego() {
 
@@ -32,9 +32,9 @@ function iniciarJuego() {
 // Ejecutar al cargar la página
 window.onload = iniciarJuego;
 
-/* ====================================
-   EVENTO BOTÓN INTENTAR
-==================================== */
+
+   //EVENTO BOTÓN INTENTAR
+
 
 document.getElementById("guessBtn").addEventListener("click", function() {
 
@@ -78,9 +78,20 @@ document.getElementById("guessBtn").addEventListener("click", function() {
     input.focus();
 });
 
-/* ====================================
-   FINALIZAR JUEGO
-==================================== */
+  // PERMITIR USAR ENTER
+
+
+document.getElementById("guessInput").addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        document.getElementById("guessBtn").click();
+    }
+
+});
+
+
+ //  FINALIZAR JUEGO
+
 
 function finalizarJuego() {
     document.getElementById("guessInput").disabled = true;
@@ -88,8 +99,9 @@ function finalizarJuego() {
     document.getElementById("resetBtn").style.display = "inline-block";
 }
 
-/* ====================================
-   BOTÓN REINICIAR
-==================================== */
+
+  // BOTÓN REINICIAR
+
+
 
 document.getElementById("resetBtn").addEventListener("click", iniciarJuego);
